@@ -3,10 +3,12 @@ import Card from '../components/card'
 import FormGroup from '../components/form-group'
 import {withRouter } from 'react-router-dom' 
 
+import axios from 'axios'
+
 class CadastroUsuario extends React.Component{
 
     state = {
-        nome:'',
+         nome:'',
         email:'',
         senha:'',
         senhaRepeticao:''
@@ -14,6 +16,16 @@ class CadastroUsuario extends React.Component{
 
     salvarCadastro = () =>{
         console.log(this.state)
+
+        axios.post("http://localhost:8080/api/usuarios",
+        {nome:this.state.nome, email:this.state.email, senha: this.state.senha}).then(response => {
+
+            this.props.history.push('/home')
+
+            }).catch(erro => {
+            console.log(erro.response)
+            this.setState({msgErro: erro.response.data})
+            })
     }
 
     cancelarCadastro = () =>{
