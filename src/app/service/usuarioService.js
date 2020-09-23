@@ -9,6 +9,11 @@ class UsuarioService extends ApiService {
     autenticar(credenciais){
         return this.post('/autenticar',credenciais)
     }
+
+    listarUsuarios(){
+        return this.post('/listar')
+    }
+    
 }
 
 export default UsuarioService

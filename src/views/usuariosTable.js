@@ -2,12 +2,12 @@ import React from 'react'
 
 export default props => {
 
-    const rows = props.usuarios.map(Usuario =>{
+    const rows = props.usuarios.map(Usuarios =>{
         return (
             <tr>
-                <td>{Usuario.idUsuario}</td>
-                <td>{Usuario.nome}</td>
-                <td>{Usuario.email}</td>
+                <td>{Usuarios.idUsuario}</td>
+                <td>{Usuarios.nome}</td>
+                <td>{Usuarios.email}</td>
             </tr>
         )
     })
